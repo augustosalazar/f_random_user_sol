@@ -13,17 +13,14 @@ class UserRepository implements IUserRepository {
   Future<bool> getUser() async {
     // TODO
     // Aquí debemos obtener una instancia de RandomUser del remoteDataSource
+    RandomUser user = await remoteDataSource.getUser();
     // y pasarla al localDataSource
+    await localDataSource.addUser(user);
     return true;
   }
 
   @override
-  Future<List<RandomUser>> getAllUsers() {
-    // TODO
-    // Aquí debemos obtener una lista de RandomUser del localDataSource
-    List<RandomUser> list = [];
-    return Future.value(list);
-  }
+  Future<List<RandomUser>> getAllUsers() => localDataSource.getAllUsers();
 
   @override
   Future<void> deleteUser(id) {

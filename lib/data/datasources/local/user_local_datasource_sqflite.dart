@@ -42,7 +42,7 @@ class UserLocalDataSourceSqfLite implements IUserLocalDataSource {
     //TODO
     // aqui se debe hacer un query en la tabla users, la base de datos que retorna un List<Map<String, dynamic>> maps
 
-    List<Map<String, dynamic>> maps = <Map<String, dynamic>>[];
+    final List<Map<String, dynamic>> maps = await db.query('users');
 
     return List.generate(maps.length, (i) {
       return RandomUser(

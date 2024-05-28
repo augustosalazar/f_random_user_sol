@@ -6,29 +6,13 @@ class UserUseCase {
 
   UserUseCase(this.repository);
 
-  Future<void> addUser() async {
-    // TODO
-    // llamar al metodo de repository para agregar un usuario
-  }
+  Future<void> addUser() async => await repository.getUser();
 
-  Future<List<RandomUser>> getAllUsers() async {
-    // TODO
-    // llamar al metodo de repository para obtener todos los usuarios
-    return [];
-  }
+  Future<List<RandomUser>> getAllUsers() async => repository.getAllUsers();
 
-  Future<void> deleteUser(id) async {
-    // TODO
-    // llamar al metodo de repository para eliminar un usuario
-  }
+  Future<void> deleteUser(id) async => await repository.deleteUser(id);
 
-  Future<void> deleteAll() async {
-    // TODO
-    // llamar al metodo de repository para eliminar todos los usuarios
-  }
+  Future<void> deleteAll() async => await repository.deleteAll();
 
-  Future<void> updateUser(user) async {
-    // TODO
-    // llamar al metodo de repository para actualizar un usuario
-  }
+  Future<void> updateUser(user) async => await repository.updateUser(user);
 }
