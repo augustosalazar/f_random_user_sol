@@ -61,6 +61,7 @@ class UserLocalDataSourceSqfLite implements IUserLocalDataSource {
     Database db = await database;
     //TODO
     // aquí se debe llamar al db.delete usando el where con el id  - tabla users
+    await db.delete('users', where: 'id = ?', whereArgs: [id]);
   }
 
   @override
@@ -68,6 +69,7 @@ class UserLocalDataSourceSqfLite implements IUserLocalDataSource {
     Database db = await database;
     //TODO
     // aquí se debe llamar al db.delete  - tabla users
+    await db.delete('users');
   }
 
   @override
@@ -75,5 +77,7 @@ class UserLocalDataSourceSqfLite implements IUserLocalDataSource {
     Database db = await database;
     //TODO
     // aquí se debe llamar al db.update actualizando nombre y cuidad usando el where con el id  - tabla users
+    await db.update('users', {'name': user.name, 'city': user.city},
+        where: 'id = ?', whereArgs: [user.id]);
   }
 }
